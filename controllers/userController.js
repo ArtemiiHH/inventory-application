@@ -1,20 +1,27 @@
 // CRUD Operations
 // CREATE
-exports.createUser = async (req, res) => {
+async function createUser(req, res) {
   console.log("Create user");
-};
+}
 
 // READ
-exports.getUser = async (req, res) => {
+async function getUser(req, res) {
   console.log("Get user");
-};
+}
 
 // UPDATE
-exports.updateUser = async (req, res) => {
+async function updateUser(req, res) {
   console.log("Update user");
-};
+}
 
 // DELETE
-exports.deleteUser = async (req, res) => {
+async function deleteUser(req, res) {
   console.log("Delete user");
+}
+
+module.exports = {
+  createUser,
+  getUser,
+  updateUser,
+  deleteUser,
 };
