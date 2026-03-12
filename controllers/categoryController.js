@@ -6,4 +6,4 @@ exports.createCategory = (req, res) => {};
 
 exports.updateCategory = (req, res) => {};
 
-exports.deleteCategort = (req, res) => {};
+exports.deleteCategory = (req, res) => {};
