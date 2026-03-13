@@ -24,6 +24,7 @@ exports.createProduct = async function (req, res) {
     stock: req.body.stock,
     price: req.body.price,
     description: req.body.description,
+    image_url: req.body.path,
   };
 };
 

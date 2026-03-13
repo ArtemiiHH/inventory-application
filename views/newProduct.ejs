@@ -10,7 +10,7 @@
     <h1><%= title %></h1>
 
     <!-- Form -->
-    <form action="/products/new" method="POST">
+    <form action="/products/new" method="POST" enctype="multipart/form-data">
       <!-- Name -->
       <label for="name">Name: </label>
       <input type="text" name="name" id="name" />
@@ -40,7 +40,7 @@
 
       <!-- Image -->
       <label for="image">Add image: </label>
-      <input type="image" name="image" id="image" />
+      <input type="file" name="image" id="image" />
 
       <!-- Submit Button -->
       <button type="submit">Submit product</button>
