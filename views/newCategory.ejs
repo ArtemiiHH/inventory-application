@@ -8,5 +8,42 @@
   <body>
     <!-- Title -->
     <h1><%= title %></h1>
+
+    <!-- Form -->
+    <form action="/category/new" method="POST">
+      <!-- Name -->
+      <label for="name">Name: </label>
+      <input type="text" name="name" id="" />
+
+      <!-- Brand -->
+      <label for="brand">Brand: </label>
+      <input type="text" name="brand" id="" />
+
+      <!-- Price -->
+      <label for="price">Item price: </label>
+      <input type="number" name="price" id="" />
+
+      <!-- Stock -->
+      <label for="stock">Stock: </label>
+      <input type="number" name="stock" id="" />
+
+      <!-- Description -->
+      <label for="description">Description: </label>
+      <textarea name="description" id=""></textarea>
+
+      <!-- Category -->
+      <select name="categories" id="categories">
+        <option value="">option 1</option>
+        <option value="">option 2</option>
+        <option value="">option 3</option>
+      </select>
+
+      <!-- Image -->
+      <label for="image">Add image: </label>
+      <input type="image" name="image" id="" />
+
+      <!-- Submit Button -->
+      <button type="submit">Submit product</button>
+    </form>
   </body>
 </html>

@@ -8,6 +8,12 @@ exports.getCategories = async function (req, res) {
   });
 };
 
+exports.getNewCategoryForm = async function (req, res) {
+  res.render("newCategory", {
+    title: "Add category",
+  });
+};
+
 exports.getCategoryById = (req, res) => {};
 
 exports.createCategory = (req, res) => {};
