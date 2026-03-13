@@ -14,5 +14,5 @@ exports.getAllCategories = async function () {
 
 // Insert new product name
 exports.addProductToDb = async function (productName) {
-  await pool.query("INSERT INTO name (productName) VALUES ($1)", [productName]);
+  await pool.query("INSERT INTO sneakers (name) VALUES ($1)", [productName]);
 };

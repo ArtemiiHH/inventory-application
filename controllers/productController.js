@@ -17,6 +17,7 @@ exports.getNewProductForm = async function (req, res) {
 exports.getProductById = (req, res) => {};
 
 exports.createProduct = async function (req, res) {
+  // New product's input data
   const newProduct = {
     name: req.body.name,
     brand: req.body.brand,
@@ -26,6 +27,10 @@ exports.createProduct = async function (req, res) {
     description: req.body.description,
     image_url: req.body.path,
   };
+
+  await db.addProductToDb(newProduct);
+  // Return to products page after
+  res.redirect("/products");
 };
 
 exports.updateProduct = (req, res) => {};
