@@ -6,9 +6,17 @@
     <title><%= title %></title>
   </head>
   <body>
+    <!-- Title -->
     <h1><%= title %></h1>
+
+    <!-- Each category -->
     <% categories.forEach(cat => { %>
       <p><%= cat.category %></p>
     <% }) %>
+
+    <!-- Add button -->
+    <a href="/create">
+      <button>Add new product</button>
+    </a>
   </body>
 </html>
