@@ -1,4 +1,12 @@
-exports.getCategories = (req, res) => {};
+const db = require("../db/queries");
+
+exports.getCategories = async function (req, res) {
+  const categories = await db.getAllCategories();
+  res.render("categories", {
+    title: "All categories",
+    categories: categories,
+  });
+};
 
 exports.getCategoryById = (req, res) => {};
 
