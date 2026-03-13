@@ -8,6 +8,12 @@ exports.getProducts = async function (req, res) {
   });
 };
 
+exports.getNewProductForm = async function (req, res) {
+  res.render("newProduct", {
+    title: "Add product",
+  });
+};
+
 exports.getProductById = (req, res) => {};
 
 exports.createProduct = (req, res) => {};

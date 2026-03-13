@@ -5,7 +5,7 @@ const categories = Router();
 // Hanlde URLs
 categories.get("/", categoryController.getCategories);
 categories.get("/:id", categoryController.getCategoryById);
-categories.post("/create", categoryController.createCategory);
+categories.post("/new", categoryController.createCategory);
 categories.put("/:id/edit", categoryController.updateCategory);
 categories.delete("/:id/delete", categoryController.deleteCategory);
 
