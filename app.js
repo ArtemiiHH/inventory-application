@@ -1,9 +1,14 @@
 const express = require("express");
 const app = express();
 const path = require("node:path");
+
+// Routes
 const indexRoute = require("./routes/index");
 const productRoute = require("./routes/products");
 const categoryRoute = require("./routes/categories");
+
+// Register body parser
+app.use(express.urlencoded({ extended: true }));
 
 // Set EJS as view engine
 app.set("views", path.join(__dirname, "views"));

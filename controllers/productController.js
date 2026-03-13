@@ -16,7 +16,16 @@ exports.getNewProductForm = async function (req, res) {
 
 exports.getProductById = (req, res) => {};
 
-exports.createProduct = (req, res) => {};
+exports.createProduct = async function (req, res) {
+  const newProduct = {
+    name: req.body.name,
+    brand: req.body.brand,
+    category: req.body.category,
+    stock: req.body.stock,
+    price: req.body.price,
+    description: req.body.description,
+  };
+};
 
 exports.updateProduct = (req, res) => {};
 
