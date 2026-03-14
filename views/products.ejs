@@ -7,10 +7,22 @@
     <link rel="stylesheet" href="/css/styles.css">
   </head>
   <body>
-    <!-- Title -->
-    <h1><%= title %></h1>
 
-    <!-- Each product -->
+    <!-- Title Group -->
+    <div class="product-title-group">
+      <!-- Title -->
+    <h1><%= title %></h1>
+    
+    <!-- Add button -->
+    <a href="/products/new">
+      <button>+ Add new product</button>
+    </a>
+    </div>
+
+    <!-- Item Grid -->
+    <div class="item-grid">
+
+      <!-- Each product -->
     <% products.forEach(product => { %>
       <div class="item-card">
         <img src="<%= product.image_url %>" alt="<%= product.name %>">
@@ -20,10 +32,7 @@
         <p><%= product.price %></p>
       </div>
     <% }) %>
-    
-    <!-- Add button -->
-    <a href="/products/new">
-      <button>+ Add new product</button>
-    </a>
+
+    </div>
   </body>
 </html>
