@@ -1,0 +1,7 @@
+.item-card {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(213, 213, 213);
+  border-radius: 20px;
+  padding: 20px;
+}

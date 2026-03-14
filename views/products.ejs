@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
+    <link rel="stylesheet" href="../public/styles.css">
   </head>
   <body>
     <!-- Title -->
@@ -11,7 +12,13 @@
 
     <!-- Each product -->
     <% products.forEach(product => { %>
-      <p><%= product.name %></p>
+      <div class="item-card">
+        <img src="<%= product.image_url %>" alt="<%= product.name %>">
+        <h3><%= product.name %></h3>
+        <p><%= product.brand %></p>
+        <p><%= product.stock %></p>
+        <p><%= product.price %></p>
+      </div>
     <% }) %>
     
     <!-- Add button -->
