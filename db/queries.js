@@ -6,10 +6,13 @@ exports.getAllProducts = async function () {
   return rows;
 };
 
-// Get all categories from DB
-exports.getAllCategories = async function () {
-  const { rows } = await pool.query("SELECT DISTINCT category FROM sneakers");
-  return rows;
+// Get product by id
+exports.getProductId = async function (id) {
+  const { rows } = await pool.query("SELECT * FROM sneakers WHERE id = $1", [
+    id,
+  ]);
+
+  return rows[0]; // Return single product, not whole array
 };
 
 // Insert new product name
@@ -26,4 +29,10 @@ exports.addProductToDb = async function (newProduct) {
       newProduct.image_url,
     ],
   );
+};
+
+// Get all categories from DB
+exports.getAllCategories = async function () {
+  const { rows } = await pool.query("SELECT DISTINCT category FROM sneakers");
+  return rows;
 };

@@ -14,7 +14,14 @@ exports.getNewProductForm = async function (req, res) {
   });
 };
 
-exports.getProductById = async function (req, res) {};
+exports.getProductById = async function (req, res) {
+  const id = req.params.id;
+  const product = await db.getProductId(id);
+  res.render("item", {
+    title: product.name,
+    product: product,
+  });
+};
 
 exports.createProduct = async function (req, res) {
   // New product's input data
