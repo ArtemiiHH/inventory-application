@@ -8,7 +8,7 @@ products.get("/", productController.getProducts);
 products.get("/new", productController.getNewProductForm);
 products.get("/:id", productController.getProductById);
 products.post("/new", upload.single("image"), productController.createProduct);
-products.put("/:id/edit", productController.updateProduct);
-products.delete("/:id/delete", productController.deleteProduct);
+products.put("/:id", productController.updateProduct);
+products.delete("/:id", productController.deleteProduct);
 
 module.exports = products;

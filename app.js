@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("node:path");
+const methodOverride = require("method-override");
 
 // Routes
 const indexRoute = require("./routes/index");
@@ -11,6 +12,8 @@ const categoryRoute = require("./routes/categories");
 app.use(express.urlencoded({ extended: true }));
 // Serve static files
 app.use(express.static("public"));
+// Let use HTTP verbs like PUT/DELETE
+app.use(methodOverride("_method"));
 
 // Set EJS as view engine
 app.set("views", path.join(__dirname, "views"));

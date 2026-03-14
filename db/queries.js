@@ -34,9 +34,7 @@ exports.addProductToDb = async function (newProduct) {
 
 // Delete product from DB
 exports.deleteProductFromDb = async function (id) {
-  const { rows } = await pool.query("DELETE FROM sneakers WHERE id = $1", [id]);
-
-  return rows[0]; // Delete single product, not whole array
+  await pool.query("DELETE FROM sneakers WHERE id = $1", [id]);
 };
 
 // Categories
