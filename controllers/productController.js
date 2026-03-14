@@ -14,7 +14,7 @@ exports.getNewProductForm = async function (req, res) {
   });
 };
 
-exports.getProductById = (req, res) => {};
+exports.getProductById = async function (req, res) {};
 
 exports.createProduct = async function (req, res) {
   // New product's input data
@@ -33,6 +33,6 @@ exports.createProduct = async function (req, res) {
   res.redirect("/products");
 };
 
-exports.updateProduct = (req, res) => {};
+exports.updateProduct = async function (req, res) {};
 
-exports.deleteProduct = (req, res) => {};
+exports.deleteProduct = async function (req, res) {};

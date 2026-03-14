@@ -14,10 +14,10 @@ exports.getNewCategoryForm = async function (req, res) {
   });
 };
 
-exports.getCategoryById = (req, res) => {};
+exports.getCategoryById = async function (req, res) {};
 
-exports.createCategory = (req, res) => {};
+exports.createCategory = async function (req, res) {};
 
-exports.updateCategory = (req, res) => {};
+exports.updateCategory = async function (req, res) {};
 
-exports.deleteCategory = (req, res) => {};
+exports.deleteCategory = async function (req, res) {};
