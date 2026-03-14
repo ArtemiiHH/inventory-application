@@ -9,6 +9,8 @@ const categoryRoute = require("./routes/categories");
 
 // Register body parser
 app.use(express.urlencoded({ extended: true }));
+// Serve static files
+app.use(express.static("public"));
 
 // Set EJS as view engine
 app.set("views", path.join(__dirname, "views"));
