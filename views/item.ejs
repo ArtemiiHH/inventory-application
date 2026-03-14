@@ -6,16 +6,16 @@
     <title><%= title %></title>
   </head>
   <body>
-    
     <!-- Back Button -->
     <a href="/products">
       <button>Back to products</button>
     </a>
-    
+
     <div class="item-details">
       <!-- Item Image -->
-      <img src="" alt="">
+      <img src="<%= product.image_url %>" alt="<%= product.name %>" />
 
+      <!-- Item details -->
       <div class="details">
         <h2><%= product.name %></h2>
         <p><%= product.brand %></p>
