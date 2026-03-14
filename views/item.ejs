@@ -6,6 +6,23 @@
     <title><%= title %></title>
   </head>
   <body>
-    <h1><%= title %></h1>
+    
+    <!-- Back Button -->
+    <a href="/products">
+      <button>Back to products</button>
+    </a>
+    
+    <div class="item-details">
+      <!-- Item Image -->
+      <img src="" alt="">
+
+      <div class="details">
+        <h2><%= product.name %></h2>
+        <p><%= product.brand %></p>
+        <p><%= product.stock %></p>
+        <p><%= product.price %></p>
+        <p><%= product.description %></p>
+      </div>
+    </div>
   </body>
 </html>
