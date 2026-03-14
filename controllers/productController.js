@@ -42,4 +42,8 @@ exports.createProduct = async function (req, res) {
 
 exports.updateProduct = async function (req, res) {};
 
-exports.deleteProduct = async function (req, res) {};
+exports.deleteProduct = async function (req, res) {
+  const id = req.body.id;
+  await db.deleteProductFromDb(id);
+  res.redirect("/products");
+};
