@@ -12,10 +12,9 @@
     <!-- Main -->
       <section>
         <!-- Title Group -->
-    <div class="product-title-group">
+    <div class="title-group">
       <!-- Title -->
     <h1><%= title %></h1>
-    
     <!-- Add button -->
     <a href="/products/new">
       <button>+ Add new product</button>
@@ -31,9 +30,9 @@
         <div class="item-card">
         <img src="<%= product.image_url %>" alt="<%= product.name %>">
         <h3><%= product.name %></h3>
-        <p><%= product.brand %></p>
-        <p><%= product.stock %></p>
-        <p><%= product.price %></p>
+        <p>Brand: <%= product.brand %></p>
+        <p>Stock: <%= product.stock %></p>
+        <p><strong>$<%= product.price %></strong></p>
         </div>
       </a>
     <% }) %>

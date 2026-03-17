@@ -7,6 +7,10 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+section {
+  padding: 50px 5%;
+}
+
 h1,
 h2,
 h3,
@@ -20,7 +24,7 @@ a {
   color: black;
 }
 
-/* Home Hero Layout */
+/* Home Layout */
 .home {
   display: flex;
   align-items: center;
@@ -58,7 +62,7 @@ a {
   object-fit: contain;
 }
 
-/* ── Responsive ── */
+/* Responsive */
 @media (max-width: 768px) {
   .home {
     flex-direction: column;
@@ -90,4 +94,26 @@ footer {
   justify-content: center;
   align-items: center;
   padding: 20px;
+}
+
+/* Products */
+.item-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.item-card {
+  background-color: rgb(235, 235, 235);
+  border-radius: 10px;
+  padding: 20px;
+  height: 500px;
+  width: auto;
+}
+
+.title-group {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 20px 0;
 }
