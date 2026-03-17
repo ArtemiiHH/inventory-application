@@ -12,9 +12,12 @@ h2,
 h3,
 h4,
 p,
-li {
+li,
+a {
   margin: 0;
   list-style-type: none;
+  text-decoration: none;
+  color: black;
 }
 
 /* Home Hero Layout */
@@ -75,6 +78,7 @@ header {
   padding: 20px 50px;
 }
 
+/* Navigation Tabs */
 .navigation {
   display: flex;
   gap: 30px;
