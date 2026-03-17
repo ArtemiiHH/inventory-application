@@ -6,48 +6,48 @@
     <title><%= title %></title>
   </head>
   <body>
-
     <%- include('header') %>
-    <!-- Title -->
-    <h1><%= title %></h1>
+    <section>
+      <!-- Title -->
+      <h1><%= title %></h1>
 
-    <!-- Form -->
-    <form action="/products/new" method="POST" enctype="multipart/form-data">
-      <!-- Name -->
-      <label for="name">Name: </label>
-      <input type="text" name="name" id="name" />
+      <!-- Form -->
+      <form action="/products/new" method="POST" enctype="multipart/form-data">
+        <!-- Name -->
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name" />
 
-      <!-- Brand -->
-      <label for="brand">Brand: </label>
-      <input type="text" name="brand" id="brand" />
+        <!-- Brand -->
+        <label for="brand">Brand: </label>
+        <input type="text" name="brand" id="brand" />
 
-      <!-- Price -->
-      <label for="price">Item price: </label>
-      <input type="number" name="price" id="price" />
+        <!-- Price -->
+        <label for="price">Item price: </label>
+        <input type="number" name="price" id="price" />
 
-      <!-- Stock -->
-      <label for="stock">Stock: </label>
-      <input type="number" name="stock" id="stock" />
+        <!-- Stock -->
+        <label for="stock">Stock: </label>
+        <input type="number" name="stock" id="stock" />
 
-      <!-- Description -->
-      <label for="description">Description: </label>
-      <textarea name="description" id="description"></textarea>
+        <!-- Description -->
+        <label for="description">Description: </label>
+        <textarea name="description" id="description"></textarea>
 
-      <!-- Category -->
-      <select name="categories" id="categories">
-        <option value="">option 1</option>
-        <option value="">option 2</option>
-        <option value="">option 3</option>
-      </select>
+        <!-- Category -->
+        <select name="categories" id="categories">
+          <option value="">option 1</option>
+          <option value="">option 2</option>
+          <option value="">option 3</option>
+        </select>
 
-      <!-- Image -->
-      <label for="image">Add image: </label>
-      <input type="file" name="image" id="image" />
+        <!-- Image -->
+        <label for="image">Add image: </label>
+        <input type="file" name="image" id="image" />
 
-      <!-- Submit Button -->
-      <button type="submit">Submit product</button>
-    </form>
+        <!-- Submit Button -->
+        <button type="submit">Submit product</button>
+      </form>
+    </section>
     <%- include('footer') %>
-
   </body>
 </html>

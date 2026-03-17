@@ -11,6 +11,10 @@ li {
   list-style-type: none;
 }
 
+section {
+  padding: 30px;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -18,7 +22,7 @@ header {
   padding: 15px 30px;
 }
 
-.navigation-tabs {
+.navigation {
   display: flex;
   gap: 30px;
 }
