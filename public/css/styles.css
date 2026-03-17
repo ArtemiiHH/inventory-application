@@ -1,11 +1,30 @@
-/* ── Home Hero Layout ── */
+/* Font */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* General */
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+li {
+  margin: 0;
+  list-style-type: none;
+}
+
+/* Home Hero Layout */
 .home {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
   padding: 3rem 5%;
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - (91px + 52px));
 }
 
 .home-text {
@@ -46,4 +65,25 @@
   .banner-image {
     max-width: 100%;
   }
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+}
+
+.navigation {
+  display: flex;
+  gap: 30px;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
