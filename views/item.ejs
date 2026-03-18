@@ -6,7 +6,6 @@
     <title><%= title %></title>
   </head>
   <body>
-
     <%- include('header') %>
     <!-- Back Button -->
     <a href="/products">
@@ -34,15 +33,11 @@
         </a>
 
         <!-- Delete Button -->
-        <form
-          method="POST"
-          action="/products/<%= product.id %>?_method=DELETE"
-        >
+        <form method="POST" action="/products/<%= product.id %>?_method=DELETE">
           <button type="submit">Delete</button>
         </form>
       </div>
     </div>
     <%- include('footer') %>
-
   </body>
 </html>

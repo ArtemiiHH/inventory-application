@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const productController = require("../controllers/productController");
 const products = Router();
-const upload = require("../config/cloudinary");
+const upload = require("../config/multer");
 
 // Hanlde URLs
 products.get("/", productController.getProducts);

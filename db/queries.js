@@ -27,7 +27,7 @@ exports.addProductToDb = async function (newProduct) {
       newProduct.stock,
       newProduct.price,
       newProduct.description,
-      newProduct.image_url,
+      "/images/" + newProduct.image_url, // Add file path
     ],
   );
 };
