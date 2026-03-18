@@ -23,6 +23,8 @@ exports.getProductById = async function (req, res) {
   });
 };
 
+exports.getEditProductForm = async function (req, res) {};
+
 exports.createProduct = async function (req, res) {
   // New product's input data
   const newProduct = {
