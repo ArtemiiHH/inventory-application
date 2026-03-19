@@ -23,8 +23,6 @@ exports.getProductById = async function (req, res) {
   });
 };
 
-exports.getEditProductForm = async function (req, res) {};
-
 exports.createProduct = async function (req, res) {
   // New product's input data
   const newProduct = {
@@ -42,7 +40,26 @@ exports.createProduct = async function (req, res) {
   res.redirect("/products");
 };
 
-exports.updateProduct = async function (req, res) {};
+exports.getEditProductForm = async function (req, res) {
+  const id = req.params.id;
+  const product = await db.getProductById(id);
+
+  res.render("editProduct", {
+    title: "Edit product",
+    product: product,
+  });
+};
+
+exports.updateProduct = async function (req, res) {
+  const id = req.params.id;
+  const { name, brand, category, stock, price, description } = req.body;
+
+  const updatedProduct = { name, brand, category, stock, price, description };
+  updatedProduct.image_url = req.file ? rew.file.filename : "default-shoe.png";
+
+  await db.updateProduct(id, updatedProduct);
+  res.redirect(`/products/${id}`);
+};
 
 exports.deleteProduct = async function (req, res) {
   const id = req.params.id;

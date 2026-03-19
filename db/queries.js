@@ -37,7 +37,22 @@ exports.deleteProductFromDb = async function (id) {
   await pool.query("DELETE FROM sneakers WHERE id = $1", [id]);
 };
 
-exports.updateProduct = async function (id) {};
+// Update product form
+exports.updateProduct = async function (id, updatedProduct) {
+  await pool.query(
+    "UPDATE sneakers SET name = $1, brand = $2, category = $3, stock = $4, price = $5, description = $6, image_url = $7 WHERE id = $8",
+    [
+      updatedProduct.name,
+      updatedProduct.brand,
+      updatedProduct.category,
+      updatedProduct.stock,
+      updatedProduct.price,
+      updatedProduct.description,
+      "/images/" + updatedProduct.image_url,
+      id,
+    ],
+  );
+};
 
 // Categories
 // Get all categories from DB
