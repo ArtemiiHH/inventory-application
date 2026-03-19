@@ -37,6 +37,8 @@ exports.deleteProductFromDb = async function (id) {
   await pool.query("DELETE FROM sneakers WHERE id = $1", [id]);
 };
 
+exports.updateProduct = async function (id) {};
+
 // Categories
 // Get all categories from DB
 exports.getAllCategories = async function () {
