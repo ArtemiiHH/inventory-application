@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <%- include('header') %>
+    <section>
+      <!-- Title -->
+      <h1><%= title %></h1>
+
+      <!-- Form -->
+      <form
+        action="/products/<%= product.id %>?_method=PUT"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <!-- Name -->
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name" value="<%= product.name %>" />
+
+        <!-- Brand -->
+        <label for="brand">Brand: </label>
+        <input type="text" name="brand" id="brand"  value="<%= product.brand %>" />
+
+        <!-- Price -->
+        <label for="price">Item price: </label>
+        <input type="number" name="price" id="price"  value="<%= product.price %>" />
+
+        <!-- Stock -->
+        <label for="stock">Stock: </label>
+        <input type="number" name="stock" id="stock"  value="<%= product.stock %>" />
+
+        <!-- Description -->
+        <label for="description">Description: </label>
+        <textarea name="description" id="description"><%= product.description %></textarea>
+
+        <!-- Category -->
+        <select name="categories" id="categories">
+          <option value="sneakers" <%= product.category === 'sneakers' ? 'selected' : '' %>>Sneakers</option>
+          <option value="running" <%= product.category === 'running' ? 'selected' : '' %>>Running</option>
+          <option value="basketball" <%= product.category === 'basketball' ? 'selected' : '' %>>Basketball</option>
+        </select>
+
+        <!-- Image -->
+        <label for="image">Replace image: </label>
+        <input type="file" name="image" id="image" />
+
+        <!-- Submit Button -->
+        <button type="submit">Save changes</button>
+      </form>
+    </section>
+    <%- include('footer') %>
+  </body>
+</html>
