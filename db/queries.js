@@ -18,33 +18,22 @@ exports.getProductById = async function (id) {
 
 // Add new product to DB
 exports.addProductToDb = async function (newProduct) {
-  if (newProduct.image_url) {
-    await pool.query(
-      "INSERT INTO sneakers (name, brand, category, stock, price, description, image_url) VALUES ($1, $2, $3, $4, $5, $6, $7)",
-      [
-        newProduct.name,
-        newProduct.brand,
-        newProduct.category,
-        newProduct.stock,
-        newProduct.price,
-        newProduct.description,
-        "/images/" + newProduct.image_url, // Add file path
-      ],
-    );
-  } else {
-    await pool.query(
-      "INSERT INTO sneakers (name, brand, category, stock, price, description, image_url) VALUES ($1, $2, $3, $4, $5, $6, $7)",
-      [
-        newProduct.name,
-        newProduct.brand,
-        newProduct.category,
-        newProduct.stock,
-        newProduct.price,
-        newProduct.description,
-        "/images/" + "default-shoe.png", // Add file path
-      ],
-    );
-  }
+  const image = newProduct.image_url
+    ? "/images/" + newProduct.image_url
+    : "/images/default-shoe.png";
+
+  await pool.query(
+    "INSERT INTO sneakers (name, brand, category, stock, price, description, image_url) VALUES ($1, $2, $3, $4, $5, $6, $7)",
+    [
+      newProduct.name,
+      newProduct.brand,
+      newProduct.category,
+      newProduct.stock,
+      newProduct.price,
+      newProduct.description,
+      image,
+    ],
+  );
 };
 
 // Delete product from DB
@@ -54,19 +43,39 @@ exports.deleteProductFromDb = async function (id) {
 
 // Update product form
 exports.updateProduct = async function (id, updatedProduct) {
-  await pool.query(
-    "UPDATE sneakers SET name = $1, brand = $2, category = $3, stock = $4, price = $5, description = $6, image_url = $7 WHERE id = $8",
-    [
-      updatedProduct.name,
-      updatedProduct.brand,
-      updatedProduct.category,
-      updatedProduct.stock,
-      updatedProduct.price,
-      updatedProduct.description,
-      "/images/" + updatedProduct.image_url,
-      id,
-    ],
-  );
+  const image = updatedProduct.image_url
+    ? "/images/" + updatedProduct.image_url
+    : null;
+
+  if (image) {
+    await pool.query(
+      "UPDATE sneakers SET name = $1, brand = $2, category = $3, stock = $4, price = $5, description = $6, image_url = $7 WHERE id = $8",
+      [
+        updatedProduct.name,
+        updatedProduct.brand,
+        updatedProduct.category,
+        updatedProduct.stock,
+        updatedProduct.price,
+        updatedProduct.description,
+        image,
+        id,
+      ],
+    );
+  } else {
+    // No image update
+    await pool.query(
+      "UPDATE sneakers SET name = $1, brand = $2, category = $3, stock = $4, price = $5, description = $6, image_url = $7 WHERE id = $8",
+      [
+        updatedProduct.name,
+        updatedProduct.brand,
+        updatedProduct.category,
+        updatedProduct.stock,
+        updatedProduct.price,
+        updatedProduct.description,
+        id,
+      ],
+    );
+  }
 };
 
 // Categories
