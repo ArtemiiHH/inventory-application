@@ -18,18 +18,33 @@ exports.getProductById = async function (id) {
 
 // Add new product to DB
 exports.addProductToDb = async function (newProduct) {
-  await pool.query(
-    "INSERT INTO sneakers (name, brand, category, stock, price, description, image_url) VALUES ($1, $2, $3, $4, $5, $6, $7)",
-    [
-      newProduct.name,
-      newProduct.brand,
-      newProduct.category,
-      newProduct.stock,
-      newProduct.price,
-      newProduct.description,
-      "/images/" + newProduct.image_url, // Add file path
-    ],
-  );
+  if (newProduct.image_url) {
+    await pool.query(
+      "INSERT INTO sneakers (name, brand, category, stock, price, description, image_url) VALUES ($1, $2, $3, $4, $5, $6, $7)",
+      [
+        newProduct.name,
+        newProduct.brand,
+        newProduct.category,
+        newProduct.stock,
+        newProduct.price,
+        newProduct.description,
+        "/images/" + newProduct.image_url, // Add file path
+      ],
+    );
+  } else {
+    await pool.query(
+      "INSERT INTO sneakers (name, brand, category, stock, price, description, image_url) VALUES ($1, $2, $3, $4, $5, $6, $7)",
+      [
+        newProduct.name,
+        newProduct.brand,
+        newProduct.category,
+        newProduct.stock,
+        newProduct.price,
+        newProduct.description,
+        "/images/" + "default-shoe.png", // Add file path
+      ],
+    );
+  }
 };
 
 // Delete product from DB

@@ -55,7 +55,7 @@ exports.updateProduct = async function (req, res) {
   const { name, brand, category, stock, price, description } = req.body;
 
   const updatedProduct = { name, brand, category, stock, price, description };
-  updatedProduct.image_url = req.file ? rew.file.filename : "default-shoe.png";
+  updatedProduct.image_url = req.file ? req.file.filename : "default-shoe.png";
 
   await db.updateProduct(id, updatedProduct);
   res.redirect(`/products/${id}`);
