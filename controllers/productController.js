@@ -16,7 +16,7 @@ exports.getNewProductForm = async function (req, res) {
 
 exports.getProductById = async function (req, res) {
   const id = req.params.id;
-  const product = await db.getProductId(id);
+  const product = await db.getProductById(id);
   res.render("item", {
     title: product.name,
     product: product,

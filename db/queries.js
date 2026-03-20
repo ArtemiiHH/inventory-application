@@ -8,7 +8,7 @@ exports.getAllProducts = async function () {
 };
 
 // Get product by id
-exports.getProductId = async function (id) {
+exports.getProductById = async function (id) {
   const { rows } = await pool.query("SELECT * FROM sneakers WHERE id = $1", [
     id,
   ]);
