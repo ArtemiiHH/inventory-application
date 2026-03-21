@@ -11,28 +11,28 @@
 
     <!-- Main -->
     <section>
-        <!-- Title Group -->
-    <div class="title-group">
-      <!-- Title -->
-    <h1><%= title %></h1>
-    <!-- Add button -->
-    <a href="/categories/new">
-      <button>+ Add new category</button>
-    </a>
-    </div>
-
-    <!-- Item Grid -->
-    <div class="item-grid">
-
-      <!-- Each category -->
-    <% categories.forEach(cat => { %>
-        <div class="category-card">
-          <h3><%= cat.category %></h3>
+          <!-- Title Group -->
+          <div class="title-group">
+            <!-- Title -->
+          <h1><%= title %></h1>
+          <!-- Add button -->
+          <a href="/categories/new">
+            <button>+ Add new category</button>
+          </a>
         </div>
-    <% }) %>
-    </div>
+
+        <!-- Item Grid -->
+        <div class="item-grid">
+
+          <!-- Each category -->
+          <% categories.forEach(cat => { %>
+              <div class="category-card">
+                <h3><%= cat.category %></h3>
+              </div>
+          <% }) %>
+        </div>
       </section>
-      
+
     <%- include('footer') %>
   </body>
 </html>
