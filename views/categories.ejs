@@ -24,16 +24,15 @@
     <!-- Item Grid -->
     <div class="item-grid">
 
-      <!-- Each product -->
-    <% categories.forEach(category => { %>
-      <a href="/categories/<%= category.id %>">
+      <!-- Each category -->
+    <% categories.forEach(cat => { %>
         <div class="category-card">
-          <h3><%= category.name %></h3>
+          <h3><%= cat.category %></h3>
         </div>
-      </a>
     <% }) %>
     </div>
       </section>
+      
     <%- include('footer') %>
   </body>
 </html>
