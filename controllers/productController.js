@@ -1,13 +1,16 @@
 const db = require("../db/queries");
 const fs = require("fs");
 const path = require("node:path");
+const { title } = require("node:process");
 
 exports.getProducts = async function (req, res) {
-  const products = await db.getAllProducts();
-  res.render("products", {
-    title: "All products",
-    products: products,
-  });
+  try {
+    const products = await db.getAllProducts();
+    res.render("products", { title: "All products", products: products });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error fetching products");
+  }
 };
 
 exports.getNewProductForm = async function (req, res) {
@@ -17,50 +20,118 @@ exports.getNewProductForm = async function (req, res) {
 };
 
 exports.getProductById = async function (req, res) {
-  const id = req.params.id;
-  const product = await db.getProductById(id);
-  res.render("item", {
-    title: product.name,
-    product: product,
-  });
+  try {
+    const id = req.params.id;
+    const product = await db.getProductById(id);
+
+    // If product not found
+    if (!product) {
+      return res.status(404).send("Product not found");
+    }
+
+    // Render chosen item
+    res.render("item", { title: product.name, product: product });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error fetching product");
+  }
 };
 
 exports.createProduct = async function (req, res) {
-  // New product's input data
-  const newProduct = {
-    name: req.body.name,
-    brand: req.body.brand,
-    category: req.body.category,
-    stock: req.body.stock,
-    price: req.body.price,
-    description: req.body.description,
-    image_url: req.file?.filename,
-  };
+  try {
+    const { name, brand, category, stock, price, description } = req.body;
+    const errors = [];
 
-  await db.addProductToDb(newProduct);
-  // Return to products page after
-  res.redirect("/products");
+    if (!name) errors.push("Name is required");
+    if (!brand) errors.push("Brand is required");
+    if (!price) errors.push("Price is required");
+    if (!description) errors.push("Description is required");
+
+    if (errors.length > 0) {
+      return res.status(422).render("newProduct", {
+        title: "Add product",
+        errors: errors,
+        // echo back submitted data so user doesn't lose input
+        formData: { name, brand, category, stock, price, description },
+      });
+    }
+
+    // New product's input data
+    const newProduct = {
+      name: req.body.name,
+      brand: req.body.brand,
+      category: req.body.category,
+      stock: req.body.stock,
+      price: req.body.price,
+      description: req.body.description,
+      image_url: req.file?.filename,
+    };
+
+    await db.addProductToDb(newProduct);
+    // Redirect back to products
+    res.redirect("/products");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error adding new product");
+  }
 };
 
 exports.getEditProductForm = async function (req, res) {
-  const id = req.params.id;
-  const product = await db.getProductById(id);
+  try {
+    const id = req.params.id;
+    const product = await db.getProductById(id);
 
-  res.render("editProduct", {
-    title: "Edit product",
-    product: product,
-  });
+    // Product not found
+    if (!product) {
+      return res.status(404).send("Product not found");
+    }
+
+    res.render("editProduct", {
+      title: "Edit product details",
+      product: product,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error fetching product");
+  }
 };
 
 exports.updateProduct = async function (req, res) {
-  const id = req.params.id;
-  const { name, brand, category, stock, price, description } = req.body;
+  try {
+    const id = req.params.id;
+    const { name, brand, category, stock, price, description } = req.body;
+    const errors = [];
 
-  const updatedProduct = { name, brand, category, stock, price, description };
-  updatedProduct.image_url = req.file ? req.file.filename : null;
+    if (!name) errors.push("Name is required");
+    if (!brand) errors.push("Brand is required");
+    if (!price) errors.push("Price is required");
+    if (!description) errors.push("Description is required");
 
-  await db.updateProduct(id, updatedProduct);
-  res.redirect(`/products/${id}`);
+    if (errors.length > 0) {
+      const product = await db.getProductById(id);
+      return res.status(422).render("editProduct", {
+        title: "Edit product",
+        product: {
+          ...product,
+          name,
+          brand,
+          category,
+          stock,
+          price,
+          description,
+        },
+        errors: errors,
+      });
+    }
+
+    const updatedProduct = { name, brand, category, stock, price, description };
+    updatedProduct.image_url = req.file ? req.file.filename : null;
+    await db.updateProduct(id, updatedProduct);
+    res.redirect(`/products/${id}`);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error updating product");
+  }
 };
 
 exports.deleteProduct = async function (req, res) {
