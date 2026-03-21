@@ -135,19 +135,27 @@ exports.updateProduct = async function (req, res) {
 };
 
 exports.deleteProduct = async function (req, res) {
-  const id = req.params.id;
+  try {
+    const id = req.params.id;
+    const product = await db.getProductById(id);
 
-  const product = await db.getProductById(id);
+    if (!product) {
+      return res.status(404).send("Product not found");
+    }
 
-  // Delete image from local folder
-  if (product.image_url) {
-    const imagePath = path.join(__dirname, "..", "public", product.image_url);
-    fs.unlink(imagePath, (err) => {
-      if (err) console.error("Image could not be deleted: ", err);
-    });
+    // Delete image from local folder
+    if (product.image_url) {
+      const imagePath = path.join(__dirname, "..", "public", product.image_url);
+      fs.unlink(imagePath, (err) => {
+        if (err) console.error("Image could not be deleted: ", err);
+      });
+    }
+
+    // Delete from DB
+    await db.deleteProductFromDb(id);
+    res.redirect("/products");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error deleting product");
   }
-
-  // Delete from DB
-  await db.deleteProductFromDb(id);
-  res.redirect("/products");
 };
