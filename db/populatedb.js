@@ -157,6 +157,70 @@ const defaultProducts = [
       "The legendary two-strap sandal with a contoured cork-latex footbed that molds to the shape of your foot.",
     image_url: "/images/birkenstock-arizona.png",
   },
+
+  // Retro
+  {
+    name: "New Balance 990v6",
+    brand: "New Balance",
+    category: "retro sneakers",
+    stock: 10,
+    price: 185,
+    description:
+      "A made-in-USA icon with premium suede and mesh upper, delivering unmatched comfort and heritage style.",
+    image_url: "/images/new-balance-990v6.png",
+  },
+  {
+    name: "Adidas Gazelle",
+    brand: "Adidas",
+    category: "retro sneakers",
+    stock: 17,
+    price: 100,
+    description:
+      "A 70s-born classic with a soft suede upper and serrated 3-Stripes, reborn as a modern streetwear staple.",
+    image_url: "/images/adidas-gazelle.png",
+  },
+  {
+    name: "Nike Air Max 90",
+    brand: "Nike",
+    category: "retro sneakers",
+    stock: 13,
+    price: 130,
+    description:
+      "A vintage icon featuring the original large Air unit, waffle outsole, and bold color-blocked paneling.",
+    image_url: "/images/nike-air-max-90.png",
+  },
+
+  // Limited edition
+  {
+    name: "Adidas Yeezy Boost 350 V2",
+    brand: "Adidas",
+    category: "limited edition",
+    stock: 5,
+    price: 250,
+    description:
+      "Kanye West's iconic silhouette with a Primeknit upper and full-length Boost midsole in coveted colorways.",
+    image_url: "/images/yeezy-boost-350-v2.png",
+  },
+  {
+    name: "New Balance 574 Joe Freshgoods",
+    brand: "New Balance",
+    category: "limited edition",
+    stock: 4,
+    price: 150,
+    description:
+      "A soulful collab with Chicago designer Joe Freshgoods, blending nostalgic tones with premium materials.",
+    image_url: "/images/nb-574-joe-freshgoods.png",
+  },
+  {
+    name: "Nike SB Dunk Low Travis Scott",
+    brand: "Nike",
+    category: "limited edition",
+    stock: 3,
+    price: 350,
+    description:
+      "A highly sought-after collab with Travis Scott featuring a reverse Swoosh and earthy tonal colorway.",
+    image_url: "/images/nike-sb-dunk-travis-scott.png",
+  },
 ];
 
 async function populateDb() {
