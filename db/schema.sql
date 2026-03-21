@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS sneakers (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) UNIQUE NOT NULL,
+  brand VARCHAR(255) NOT NULL,
+  category VARCHAR(255) NOT NULL,
+  stock INTEGER NOT NULL,
+  price NUMERIC(10, 2) NOT NULL,
+  description TEXT,
+  image_url VARCHAR(255)
+);

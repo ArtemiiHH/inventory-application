@@ -34,7 +34,7 @@ exports.addProductToDb = async function (newProduct) {
       : "/images/default-shoe.png";
 
     await pool.query(
-      "INSERT INTO sneakers (name, brand, category, stock, price, description, image_url) VALUES ($1, $2, $3, $4, $5, $6, $7)",
+      "INSERT INTO sneakers (name, brand, category, stock, price, description, image_url) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT (name) DO NOTHING",
       [
         newProduct.name,
         newProduct.brand,
