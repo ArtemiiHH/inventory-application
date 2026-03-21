@@ -1,7 +1,6 @@
 const db = require("../db/queries");
 const fs = require("fs");
 const path = require("node:path");
-const { title } = require("node:process");
 
 exports.getProducts = async function (req, res) {
   try {
