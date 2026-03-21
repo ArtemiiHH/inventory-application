@@ -14,24 +14,24 @@
       <!-- Form -->
       <form action="/products/new" method="POST" enctype="multipart/form-data">
         <!-- Name -->
-        <label for="name">Name: </label>
-        <input type="text" name="name" id="name" />
+        <label for="name">*Name: </label>
+        <input type="text" name="name" id="name" required />
 
         <!-- Brand -->
-        <label for="brand">Brand: </label>
-        <input type="text" name="brand" id="brand" />
+        <label for="brand">*Brand: </label>
+        <input type="text" name="brand" id="brand" required />
 
         <!-- Price -->
-        <label for="price">Item price: </label>
-        <input type="number" name="price" id="price" />
+        <label for="price">*Item price: </label>
+        <input type="number" name="price" id="price" required />
 
         <!-- Stock -->
-        <label for="stock">Stock: </label>
-        <input type="number" name="stock" id="stock" />
+        <label for="stock">*Stock: </label>
+        <input type="number" name="stock" id="stock" required />
 
         <!-- Description -->
-        <label for="description">Description: </label>
-        <textarea name="description" id="description"></textarea>
+        <label for="description">*Description: </label>
+        <textarea name="description" id="description" required></textarea>
 
         <!-- Category -->
         <label for="categories">Category: </label>
