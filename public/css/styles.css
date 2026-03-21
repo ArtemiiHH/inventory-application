@@ -100,7 +100,7 @@ footer {
 .item-grid {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  justify-content: center;
   gap: 20px;
 }
 
@@ -129,4 +129,21 @@ footer {
 .product-image {
   height: 200px;
   width: auto;
+}
+
+/* Categories */
+.category-card {
+  background-color: rgb(235, 235, 235);
+  padding: 30px;
+  border-radius: 20px;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.category-card:hover {
+  background-color: rgb(225, 225, 225);
+  cursor: pointer;
 }
