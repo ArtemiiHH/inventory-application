@@ -52,14 +52,14 @@ const defaultProducts = [
     image_url: "/images/adidas-ultraboost-24.png",
   },
   {
-    name: "ASICS Gel-Kayano 31",
+    name: "ASICS Novablast 5",
     brand: "ASICS",
     category: "running shoes",
     stock: 9,
     price: 160,
     description:
       "A stability running shoe engineered for overpronators, featuring GEL technology and FF Blast+ cushioning.",
-    image_url: "/images/asics-gel-kayano-31.png",
+    image_url: "/images/asics-novablast5.png",
   },
 
   // Basketball
@@ -96,46 +96,46 @@ const defaultProducts = [
 
   // Skate shoes
   {
-    name: "Vans Old Skool",
-    brand: "Vans",
+    name: "Nike SB Dunk Low Pro",
+    brand: "Nike",
     category: "skate shoes",
-    stock: 25,
-    price: 70,
+    stock: 16,
+    price: 110,
     description:
-      "The iconic low-top skate shoe with a durable canvas and suede upper and signature side stripe.",
-    image_url: "/images/vans-old-skool.png",
+      "A skate-ready evolution of the classic Dunk with a padded tongue, Zoom Air insole, and durable suede overlays.",
+    image_url: "/images/nike-sb-dunk-low-pro.png",
   },
   {
-    name: "DC Shoes Court Graffik",
-    brand: "DC Shoes",
+    name: "Nike SB Blazer Low GT",
+    brand: "Nike",
     category: "skate shoes",
-    stock: 13,
-    price: 75,
+    stock: 11,
+    price: 100,
     description:
-      "A skate-ready shoe with a padded tongue and collar, built for board feel and lasting durability.",
-    image_url: "/images/dc-court-graffik.png",
+      "A low-cut skate shoe built on the classic Blazer silhouette with a Zoom Air unit and grippy rubber outsole.",
+    image_url: "/images/nike-sb-blazer-low-gt.png",
   },
   {
-    name: "Emerica Reynolds G6",
-    brand: "Emerica",
+    name: "Adidas Samba Classic",
+    brand: "Adidas",
     category: "skate shoes",
-    stock: 9,
-    price: 85,
+    stock: 18,
+    price: 90,
     description:
-      "A pro-level skate shoe with a cupsole construction and Hex-Tec insole for superior impact protection.",
-    image_url: "/images/emerica-reynolds-g6.png",
+      "A timeless indoor soccer-turned-streetwear icon with a soft leather upper and durable rubber outsole.",
+    image_url: "/images/adidas-samba-classic.png",
   },
 
   // Sandals & slides
   {
-    name: "Adidas Adilette Aqua",
+    name: "Adidas Adilette Lumia",
     brand: "Adidas",
     category: "sandals & slides",
     stock: 30,
     price: 35,
     description:
       "Lightweight and quick-drying slides perfect for poolside or post-workout recovery.",
-    image_url: "/images/adidas-adilette-aqua.png",
+    image_url: "/images/adidas-adilette.png",
   },
   {
     name: "Nike Victori One Slide",
@@ -158,38 +158,6 @@ const defaultProducts = [
     image_url: "/images/birkenstock-arizona.png",
   },
 
-  // Retro
-  {
-    name: "New Balance 990v6",
-    brand: "New Balance",
-    category: "retro sneakers",
-    stock: 10,
-    price: 185,
-    description:
-      "A made-in-USA icon with premium suede and mesh upper, delivering unmatched comfort and heritage style.",
-    image_url: "/images/new-balance-990v6.png",
-  },
-  {
-    name: "Adidas Gazelle",
-    brand: "Adidas",
-    category: "retro sneakers",
-    stock: 17,
-    price: 100,
-    description:
-      "A 70s-born classic with a soft suede upper and serrated 3-Stripes, reborn as a modern streetwear staple.",
-    image_url: "/images/adidas-gazelle.png",
-  },
-  {
-    name: "Nike Air Max 90",
-    brand: "Nike",
-    category: "retro sneakers",
-    stock: 13,
-    price: 130,
-    description:
-      "A vintage icon featuring the original large Air unit, waffle outsole, and bold color-blocked paneling.",
-    image_url: "/images/nike-air-max-90.png",
-  },
-
   // Limited edition
   {
     name: "Adidas Yeezy Boost 350 V2",
@@ -200,26 +168,6 @@ const defaultProducts = [
     description:
       "Kanye West's iconic silhouette with a Primeknit upper and full-length Boost midsole in coveted colorways.",
     image_url: "/images/yeezy-boost-350-v2.png",
-  },
-  {
-    name: "New Balance 574 Joe Freshgoods",
-    brand: "New Balance",
-    category: "limited edition",
-    stock: 4,
-    price: 150,
-    description:
-      "A soulful collab with Chicago designer Joe Freshgoods, blending nostalgic tones with premium materials.",
-    image_url: "/images/nb-574-joe-freshgoods.png",
-  },
-  {
-    name: "Nike SB Dunk Low Travis Scott",
-    brand: "Nike",
-    category: "limited edition",
-    stock: 3,
-    price: 350,
-    description:
-      "A highly sought-after collab with Travis Scott featuring a reverse Swoosh and earthy tonal colorway.",
-    image_url: "/images/nike-sb-dunk-travis-scott.png",
   },
 ];
 
