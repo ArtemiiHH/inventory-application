@@ -4,26 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
+    <%- include('header') %> 
 
-    <%- include('header') %>
     <!-- Main -->
     <section>
+        <!-- Title Group -->
+    <div class="title-group">
       <!-- Title -->
     <h1><%= title %></h1>
-
-    <!-- Each category -->
-    <% categories.forEach(cat => { %>
-      <p><%= cat.category %></p>
-    <% }) %>
-
     <!-- Add button -->
     <a href="/categories/new">
-      <button>Add new category</button>
+      <button>+ Add new category</button>
     </a>
-    </section>
-    <%- include('footer') %>
+    </div>
 
+    <!-- Item Grid -->
+    <div class="item-grid">
+
+      <!-- Each product -->
+    <% categories.forEach(category => { %>
+      <a href="/categories/<%= category.id %>">
+        <div class="category-card">
+          <h3><%= category.name %></h3>
+        </div>
+      </a>
+    <% }) %>
+    </div>
+      </section>
+    <%- include('footer') %>
   </body>
 </html>
