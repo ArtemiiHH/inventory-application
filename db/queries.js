@@ -64,7 +64,7 @@ exports.updateProduct = async function (id, updatedProduct) {
   } else {
     // No image update
     await pool.query(
-      "UPDATE sneakers SET name = $1, brand = $2, category = $3, stock = $4, price = $5, description = $6, image_url = $7 WHERE id = $8",
+      "UPDATE sneakers SET name = $1, brand = $2, category = $3, stock = $4, price = $5, description = $6 WHERE id = $7",
       [
         updatedProduct.name,
         updatedProduct.brand,
