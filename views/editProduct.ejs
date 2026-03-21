@@ -38,6 +38,7 @@
         <textarea name="description" id="description"><%= product.description %></textarea>
 
         <!-- Category -->
+        <label for="categories">Category: </label>
         <select name="categories" id="categories">
           <option value="sneakers" <%= product.category === 'sneakers' ? 'selected' : '' %>>Sneakers</option>
           <option value="running" <%= product.category === 'running' ? 'selected' : '' %>>Running</option>
