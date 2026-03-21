@@ -1,4 +1,6 @@
 const db = require("../db/queries");
+const fs = require("fs");
+const path = require("node:path");
 
 exports.getProducts = async function (req, res) {
   const products = await db.getAllProducts();
@@ -63,6 +65,18 @@ exports.updateProduct = async function (req, res) {
 
 exports.deleteProduct = async function (req, res) {
   const id = req.params.id;
+
+  const product = await db.getProductById(id);
+
+  // Delete image from local folder
+  if (product.image_url) {
+    const imagePath = path.join(__dirname, "..", "public", product.image_url);
+    fs.unlink(imagePath, (err) => {
+      if (err) console.error("Image could not be deleted: ", err);
+    });
+  }
+
+  // Delete from DB
   await db.deleteProductFromDb(id);
   res.redirect("/products");
 };
