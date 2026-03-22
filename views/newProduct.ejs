@@ -34,11 +34,13 @@
         <textarea name="description" id="description" required></textarea>
 
         <!-- Category -->
-        <label for="categories">Category: </label>
-        <select name="categories" id="categories">
-          <option value="sneakers">Sneakers</option>
-          <option value="running">Running</option>
-          <option value="basketball">Basketball</option>
+        <label for="category">Category: </label>
+        <select name="category" id="category">
+          <% categories.forEach(cat => { %>
+            <option value="<%= cat.category %>">
+              <%= cat.category %>
+            </option>
+          <% }) %>
         </select>
 
         <!-- Image -->

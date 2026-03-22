@@ -13,9 +13,17 @@ exports.getProducts = async function (req, res) {
 };
 
 exports.getNewProductForm = async function (req, res) {
-  res.render("newProduct", {
-    title: "Add product",
-  });
+  try {
+    const categories = await db.getAllCategories();
+
+    res.render("newProduct", {
+      title: "Add product",
+      categories: categories,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error loading form");
+  }
 };
 
 exports.getProductById = async function (req, res) {
@@ -47,9 +55,12 @@ exports.createProduct = async function (req, res) {
     if (!description) errors.push("Description is required");
 
     if (errors.length > 0) {
+      const categories = await db.getAllCategories();
+
       return res.status(422).render("newProduct", {
         title: "Add product",
         errors: errors,
+        categories: categories,
         // echo back submitted data so user doesn't lose input
         formData: { name, brand, category, stock, price, description },
       });
@@ -80,14 +91,18 @@ exports.getEditProductForm = async function (req, res) {
     const id = req.params.id;
     const product = await db.getProductById(id);
 
+    // Fetch categories too
+    const categories = await db.getAllCategories();
+
     // Product not found
     if (!product) {
       return res.status(404).send("Product not found");
     }
 
     res.render("editProduct", {
-      title: "Edit product details",
+      title: "Edit product",
       product: product,
+      categories: categories,
     });
   } catch (err) {
     console.error(err);
@@ -108,6 +123,8 @@ exports.updateProduct = async function (req, res) {
 
     if (errors.length > 0) {
       const product = await db.getProductById(id);
+      const categories = await db.getAllCategories();
+
       return res.status(422).render("editProduct", {
         title: "Edit product",
         product: {
@@ -119,6 +136,7 @@ exports.updateProduct = async function (req, res) {
           price,
           description,
         },
+        categories: categories,
         errors: errors,
       });
     }
