@@ -109,24 +109,39 @@ footer {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   border-right: none;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .filter-section {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  align-items: flex-start;
   flex-wrap: wrap;
-  padding-bottom: 30px;
+  padding: 10px 0;
   width: 100%;
+  box-sizing: border-box;
+}
+
+.filter-section input {
+  word-wrap: break-word;
 }
 
 .filter-section button {
   margin-top: 10px;
-  width: auto;
+  padding: 6px 20px;
+  font-weight: 500;
 }
 
 .filter-label {
   padding-bottom: 10px;
+}
+
+.price-sort {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 10px;
 }
 
 /* Products */
