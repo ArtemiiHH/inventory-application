@@ -26,6 +26,32 @@ exports.getProductById = async function (id) {
   }
 };
 
+// Get filtered products
+exports.getFilteredProducts = async function ({ sort, brand, category }) {
+  try {
+    let query = `SELECT * FROM sneakers WHERE 1 = 1`;
+    const params = [];
+    let i = 1;
+
+    if (brand.length > 0) {
+      query += ` AND brand = ANY($${i++})`;
+      params.push(brand);
+    }
+    if (category.length > 0) {
+      query += ` AND category = ANY($${i++})`;
+      params.push(category);
+    }
+
+    query += sort === "desc" ? "ORDER BY price DESC" : "ORDER BY price ACS";
+
+    const { rows } = await pool.query(query, params);
+    return rows;
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
+};
+
 // Add new product to DB
 exports.addProductToDb = async function (newProduct) {
   try {
