@@ -97,11 +97,28 @@ footer {
 }
 
 /* Products */
+.sidebar {
+  padding: 30px;
+  width: 100%;
+  border: 1px solid rgb(175, 175, 175);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-right: none;
+}
+
+.items {
+  display: flex;
+}
+
 .item-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  padding: 30px;
+  border: 1px solid rgb(175, 175, 175);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .item-card {

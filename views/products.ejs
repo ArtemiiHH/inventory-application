@@ -12,31 +12,36 @@
     <!-- Main -->
       <section>
         <!-- Title Group -->
-    <div class="title-group">
-      <!-- Title -->
-    <h1><%= title %></h1>
-    <!-- Add button -->
-    <a href="/products/new">
-      <button>+ Add new product</button>
-    </a>
-    </div>
-
-    <!-- Item Grid -->
-    <div class="item-grid">
-
-      <!-- Each product -->
-    <% products.forEach(product => { %>
-      <a href="/products/<%= product.id %>">
-        <div class="item-card">
-        <img class="product-image" src="<%= product.image_url %>" alt="<%= product.name %>">
-        <h3><%= product.name %></h3>
-        <p>Brand: <%= product.brand %></p>
-        <p>Stock: <%= product.stock %></p>
-        <p><strong>$<%= product.price %></strong></p>
+        <div class="title-group">
+          <!-- Title -->
+        <h1><%= title %></h1>
+        <!-- Add button -->
+        <a href="/products/new">
+          <button>+ Add new product</button>
+        </a>
         </div>
-      </a>
-    <% }) %>
-    </div>
+
+        <div class="items">
+          <!-- Sidebar -->
+          <%- include('sidebar') %>
+
+          <!-- Item Grid -->
+          <div class="item-grid">
+
+            <!-- Each product -->
+          <% products.forEach(product => { %>
+            <a href="/products/<%= product.id %>">
+              <div class="item-card">
+              <img class="product-image" src="<%= product.image_url %>" alt="<%= product.name %>">
+              <h3><%= product.name %></h3>
+              <p>Brand: <%= product.brand %></p>
+              <p>Stock: <%= product.stock %></p>
+              <p><strong>$<%= product.price %></strong></p>
+              </div>
+            </a>
+          <% }) %>
+          </div>
+        </div>
       </section>
     <%- include('footer') %>
   </body>
