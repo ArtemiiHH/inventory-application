@@ -82,6 +82,11 @@ header {
   padding: 20px 50px;
 }
 
+/* Search Bar */
+search {
+  padding: 0 20px;
+}
+
 /* Navigation Tabs */
 .navigation {
   display: flex;
