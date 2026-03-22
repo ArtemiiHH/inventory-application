@@ -9,14 +9,35 @@
   <body>
     <!-- Sidebar -->
     <aside class="sidebar">
-      <!-- Price -->
+      <!-- Filters -->
       <form action="">
-        <p><strong>Sort by price:</strong></p>
-        <input type="radio" id="ascending" checked />
-        <label for="ascending">Ascending</label>
-        <br>
-        <input type="radio" id="descending" />
-        <label for="descending">Descending</label>
+        <!-- Price -->
+        <div class="filter-section">
+          <label class="filter-label"><strong>Price:</strong></label>
+          <div class="price-sort">
+            <button
+              type="submit"
+              name="sort"
+              value="asc"
+              class="sort-btn <%= sort === 'asc' ? 'active' : '' %>"
+            >
+              Low → High
+            </button>
+            <button
+              type="submit"
+              name="sort"
+              value="desc"
+              class="sort-btn <%= sort === 'desc' ? 'active' : '' %>"
+            >
+              High → Low
+            </button>
+          </div>
+        </div>
+
+        <!-- Brand -->
+        <div class="filter-section">
+          <label class="filter-label"><strong>Brand:</strong></label>
+        </div>
       </form>
     </aside>
   </body>
