@@ -12,6 +12,11 @@ exports.getAllProducts = async function () {
   }
 };
 
+exports.getAllBrands = async function () {
+  const { rows } = await pool.query("SELECT DISTINCT brand FROM sneakers");
+  return rows.map((r) => r.brand);
+};
+
 // Get product by id
 exports.getProductById = async function (id) {
   try {
@@ -42,7 +47,7 @@ exports.getFilteredProducts = async function ({ sort, brands, categories }) {
       params.push(categories);
     }
 
-    query += sort === "desc" ? "ORDER BY price DESC" : "ORDER BY price ACS";
+    query += sort === "desc" ? " ORDER BY price DESC" : " ORDER BY price ASC";
 
     const { rows } = await pool.query(query, params);
     return rows;
@@ -134,7 +139,7 @@ exports.updateProduct = async function (id, updatedProduct) {
 exports.getAllCategories = async function () {
   try {
     const { rows } = await pool.query("SELECT DISTINCT category FROM sneakers");
-    return rows;
+    return rows.map((r) => r.category);
   } catch (err) {
     console.error(err);
     throw err;

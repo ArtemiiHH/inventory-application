@@ -4,7 +4,7 @@ const products = Router();
 const upload = require("../config/multer");
 
 // Hanlde URLs
-products.get("/", productController.getProducts);
+products.get("/", productController.filterProducts);
 products.get("/new", productController.getNewProductForm);
 products.get("/:id/edit", productController.getEditProductForm);
 products.get("/:id", productController.getProductById);

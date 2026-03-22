@@ -13,7 +13,7 @@
       <!-- Filters -->
       <form action="/products" method="GET">
         
-        <!-- Price -->
+        <!-- Price filters -->
         <div class="filter-section">
           <label class="filter-label"><strong>Price:</strong></label>
           <div class="price-sort">
@@ -36,9 +36,38 @@
           </div>
         </div>
 
-        <!-- Brand -->
+        <!-- Hidden inputs to preserve brand/category when clicking sort buttons -->
+        <% (brands || []).forEach(b => { %>
+          <input type="hidden" name="brand" value="<%= b %>" />
+        <% }) %>
+        <% (categories || []).forEach(c => { %>
+          <input type="hidden" name="category" value="<%= c %>" />
+        <% }) %>
+
+        <!-- Brand checkboxes -->
         <div class="filter-section">
           <label class="filter-label"><strong>Brand:</strong></label>
+          <% allBrands.forEach(b => { %>
+            <label>
+              <input type="checkbox" name="brand" value="<%= b %>"
+                <%= (brands || []).includes(b) ? 'checked' : '' %> />
+              <%= b %>
+            </label>
+          <% }) %>
+          <button type="submit">Apply</button>
+        </div>
+
+        <!-- Category checkboxes -->
+        <div class="filter-section">
+          <label class="filter-label"><strong>Category:</strong></label>
+          <% allCategories.forEach(c => { %>
+            <label>
+              <input type="checkbox" name="category" value="<%= c %>"
+                <%= (categories || []).includes(c) ? 'checked' : '' %> />
+              <%= c %>
+            </label>
+          <% }) %>
+          <button type="submit">Apply</button>
         </div>
       </form>
     </aside>
