@@ -27,19 +27,19 @@ exports.getProductById = async function (id) {
 };
 
 // Get filtered products
-exports.getFilteredProducts = async function ({ sort, brand, category }) {
+exports.getFilteredProducts = async function ({ sort, brands, categories }) {
   try {
     let query = `SELECT * FROM sneakers WHERE 1 = 1`;
     const params = [];
     let i = 1;
 
-    if (brand.length > 0) {
+    if (brands.length > 0) {
       query += ` AND brand = ANY($${i++})`;
-      params.push(brand);
+      params.push(brands);
     }
-    if (category.length > 0) {
+    if (categories.length > 0) {
       query += ` AND category = ANY($${i++})`;
-      params.push(category);
+      params.push(categories);
     }
 
     query += sort === "desc" ? "ORDER BY price DESC" : "ORDER BY price ACS";

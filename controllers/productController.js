@@ -1,6 +1,7 @@
 const db = require("../db/queries");
 const fs = require("fs");
 const path = require("node:path");
+const { title } = require("node:process");
 
 // Product controller functions
 exports.getProducts = async function (req, res) {
@@ -179,7 +180,23 @@ exports.deleteProduct = async function (req, res) {
 };
 
 exports.filterProducts = async function (req, res) {
-  const { sort, brand, category } = req.body;
+  try {
+    const { sort, brand, category } = req.body;
+
+    const products = await db.getFilteredProducts({
+      sort: sort || "asc",
+      brands: brand ? [].concat(brand) : [],
+      categories: category ? [].concat(category) : [],
+    });
+
+    res.render("products", {
+      title: "All products",
+      products: products,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error filtering products");
+  }
 };
 
 // Category controller functions
