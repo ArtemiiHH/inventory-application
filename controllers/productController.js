@@ -2,6 +2,7 @@ const db = require("../db/queries");
 const fs = require("fs");
 const path = require("node:path");
 
+// Product controller functions
 exports.getProducts = async function (req, res) {
   try {
     const products = await db.getAllProducts();
@@ -176,3 +177,9 @@ exports.deleteProduct = async function (req, res) {
     res.status(500).send("Error deleting product");
   }
 };
+
+exports.filterProducts = async function (req, res) {
+  const { sort, brand, category } = req.body;
+};
+
+// Category controller functions
