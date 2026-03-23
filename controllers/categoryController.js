@@ -16,7 +16,10 @@ exports.getNewCategoryForm = async function (req, res) {
 
 exports.getCategoryById = async function (req, res) {};
 
-exports.createCategory = async function (req, res) {};
+exports.createCategory = async function (req, res) {
+  await db.addCategoryToDb();
+  res.redirect("/categories");
+};
 
 exports.updateCategory = async function (req, res) {};
 

@@ -146,3 +146,14 @@ exports.getAllCategories = async function () {
     throw err;
   }
 };
+
+exports.addCategoryToDb = async function (newCategory) {
+  try {
+    await pool.query("INSERT INTO sneakers (category) VALUES ($1)", [
+      newCategory,
+    ]);
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
+};
