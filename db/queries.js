@@ -12,6 +12,7 @@ exports.getAllProducts = async function () {
   }
 };
 
+// Get all brands from DB
 exports.getAllBrands = async function () {
   const { rows } = await pool.query("SELECT DISTINCT brand FROM sneakers");
   return rows.map((r) => r.brand);
