@@ -15,7 +15,7 @@ exports.getAllProducts = async function () {
 // Get all brands from DB
 exports.getAllBrands = async function () {
   const { rows } = await pool.query("SELECT DISTINCT brand FROM sneakers");
-  return rows.map((r) => r.brand);
+  return rows;
 };
 
 // Get product by id
@@ -140,7 +140,7 @@ exports.updateProduct = async function (id, updatedProduct) {
 exports.getAllCategories = async function () {
   try {
     const { rows } = await pool.query("SELECT DISTINCT category FROM sneakers");
-    return rows.map((r) => r.category);
+    return rows;
   } catch (err) {
     console.error(err);
     throw err;

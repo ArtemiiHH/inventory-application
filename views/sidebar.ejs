@@ -49,9 +49,9 @@
           <label class="filter-label"><strong>Brand:</strong></label>
           <% allBrands.forEach(b => { %>
             <label>
-              <input type="checkbox" name="brand" value="<%= b %>"
-                <%= (brands || []).includes(b) ? 'checked' : '' %> />
-              <%= b %>
+              <input type="checkbox" name="brand" value="<%= b.brand %>"
+                <%= (brands || []).includes(b.brand) ? 'checked' : '' %> />
+              <%= b.brand %>
             </label>
           <% }) %>
           <button type="submit">Apply</button>
@@ -62,9 +62,9 @@
           <label class="filter-label"><strong>Category:</strong></label>
           <% allCategories.forEach(c => { %>
             <label>
-              <input type="checkbox" name="category" value="<%= c %>"
-                <%= (categories || []).includes(c) ? 'checked' : '' %> />
-              <%= c %>
+              <input type="checkbox" name="category" value="<%= c.category %>"
+                <%= (categories || []).includes(c.category) ? 'checked' : '' %> />
+              <%= c.category %>
             </label>
           <% }) %>
           <button type="submit">Apply</button>
