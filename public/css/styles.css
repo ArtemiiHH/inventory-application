@@ -171,10 +171,12 @@ footer {
   padding: 20px;
   height: 300px;
   width: 200px;
+  transition: 0.2s;
 }
 
 .item-card:hover {
   background-color: rgb(225, 225, 225);
+  transform: translateY(-5px);
 }
 
 .title-group {
