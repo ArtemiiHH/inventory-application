@@ -22,12 +22,12 @@
         </div>
 
         <!-- Item Grid -->
-        <div class="item-grid">
+        <div class="category-grid">
 
           <!-- Each category -->
           <% categories.forEach(cat => { %>
               <div class="category-card">
-                <h3><%= cat.category %></h3>
+                <h3><%= cat.category.charAt(0).toUpperCase() + cat.category.slice(1) %></h3>
               </div>
           <% }) %>
         </div>
