@@ -7,7 +7,7 @@ categories.get("/", categoryController.getCategories);
 categories.get("/new", categoryController.getNewCategoryForm);
 categories.get("/:id", categoryController.getCategoryById);
 categories.post("/new", categoryController.createCategory);
-categories.put("/:id/edit", categoryController.updateCategory);
-categories.delete("/:id/delete", categoryController.deleteCategory);
+categories.put("/:id", categoryController.updateCategory);
+categories.delete("/:id", categoryController.deleteCategory);
 
 module.exports = categories;
