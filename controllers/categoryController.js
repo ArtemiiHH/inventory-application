@@ -17,7 +17,8 @@ exports.getNewCategoryForm = async function (req, res) {
 exports.getCategoryById = async function (req, res) {};
 
 exports.createCategory = async function (req, res) {
-  await db.addCategoryToDb();
+  const { categoryName } = req.body;
+  await db.addCategoryToDb(categoryName);
   res.redirect("/categories");
 };
 
