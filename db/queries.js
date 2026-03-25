@@ -139,7 +139,7 @@ exports.updateProduct = async function (id, updatedProduct) {
 // Get all categories from DB
 exports.getAllCategories = async function () {
   try {
-    const { rows } = await pool.query("SELECT DISTINCT category FROM sneakers");
+    const { rows } = await pool.query("SELECT category FROM categories");
     return rows;
   } catch (err) {
     console.error(err);
@@ -147,12 +147,12 @@ exports.getAllCategories = async function () {
   }
 };
 
+// Add new category to DB
 exports.addCategoryToDb = async function (newCategory) {
   try {
-    await pool.query(
-      "INSERT INTO categories (category) VALUES ($1) ON CONFLICT (category) DO NOTHING",
-      [newCategory],
-    );
+    await pool.query("INSERT INTO categories (category) VALUES ($1)", [
+      newCategory,
+    ]);
   } catch (err) {
     console.error(err);
     throw err;

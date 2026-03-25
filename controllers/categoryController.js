@@ -9,8 +9,10 @@ exports.getCategories = async function (req, res) {
 };
 
 exports.getNewCategoryForm = async function (req, res) {
+  const categories = await db.getAllCategories();
   res.render("newCategory", {
     title: "Add category",
+    categories: categories,
   });
 };
 
