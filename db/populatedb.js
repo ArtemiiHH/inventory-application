@@ -175,12 +175,18 @@ async function populateDb() {
   console.log("Sending default products...");
 
   for (const product of defaultProducts) {
+    const { rows } = await pool.query(
+      "SELECT category_id FROM categories WHERE category = $1",
+      [product.category],
+    );
+    const category_id = rows[0]?.category_id || null;
+
     await pool.query(
-      "INSERT INTO sneakers (name, brand, category, stock, price, description, image_url) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT DO NOTHING",
+      "INSERT INTO sneakers (name, brand, category_id, stock, price, description, image_url) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT DO NOTHING",
       [
         product.name,
         product.brand,
-        product.category,
+        category_id,
         product.stock,
         product.price,
         product.description,
