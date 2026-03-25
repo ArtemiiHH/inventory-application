@@ -1,19 +1,29 @@
 const db = require("../db/queries");
 
 exports.getCategories = async function (req, res) {
-  const categories = await db.getAllCategories();
-  res.render("categories", {
-    title: "All categories",
-    categories: categories,
-  });
+  try {
+    const categories = await db.getAllCategories();
+    res.render("categories", {
+      title: "All categories",
+      categories: categories,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error loading categories");
+  }
 };
 
 exports.getNewCategoryForm = async function (req, res) {
-  const categories = await db.getAllCategories();
-  res.render("newCategory", {
-    title: "Add category",
-    categories: categories,
-  });
+  try {
+    const categories = await db.getAllCategories();
+    res.render("newCategory", {
+      title: "Add category",
+      categories: categories,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error loading form");
+  }
 };
 
 exports.getCategoryById = async function (req, res) {};
