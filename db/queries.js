@@ -149,9 +149,10 @@ exports.getAllCategories = async function () {
 
 exports.addCategoryToDb = async function (newCategory) {
   try {
-    await pool.query("INSERT INTO sneakers (category) VALUES ($1)", [
-      newCategory,
-    ]);
+    await pool.query(
+      "INSERT INTO categories (category) VALUES ($1) ON CONFLICT (category) DO NOTHING",
+      [newCategory],
+    );
   } catch (err) {
     console.error(err);
     throw err;
