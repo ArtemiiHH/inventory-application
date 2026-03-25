@@ -35,7 +35,7 @@ exports.getProductById = async function (id) {
 // Get filtered products
 exports.getFilteredProducts = async function ({ sort, brands, categories }) {
   try {
-    let query = `SELECT * FROM sneakers WHERE 1 = 1`;
+    let query = `SELECT sneakers.* FROM sneakers LEFT JOIN categories ON sneakers.id = categories.category_id WHERE 1 = 1`;
     const params = [];
     let i = 1;
 
@@ -44,7 +44,7 @@ exports.getFilteredProducts = async function ({ sort, brands, categories }) {
       params.push(brands);
     }
     if (categories.length > 0) {
-      query += ` AND category = ANY($${i++})`;
+      query += ` AND categories.category = ANY($${i++})`;
       params.push(categories);
     }
 
@@ -65,12 +65,19 @@ exports.addProductToDb = async function (newProduct) {
       ? "/images/" + newProduct.image_url
       : "/images/default-shoe.png";
 
+    // First get category ID
+    const { rows } = await pool.query(
+      "SELECT category_id FROM categories WHERE category = $1",
+      [newProduct.category],
+    );
+    const category_id = rows[0]?.category_id || null;
+
     await pool.query(
-      "INSERT INTO sneakers (name, brand, category, stock, price, description, image_url) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT (name) DO NOTHING",
+      "INSERT INTO sneakers (name, brand, category_id, stock, price, description, image_url) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT (name) DO NOTHING",
       [
         newProduct.name,
         newProduct.brand,
-        newProduct.category,
+        category_id,
         newProduct.stock,
         newProduct.price,
         newProduct.description,
@@ -153,6 +160,20 @@ exports.addCategoryToDb = async function (newCategory) {
     await pool.query("INSERT INTO categories (category) VALUES ($1)", [
       newCategory,
     ]);
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
+};
+
+exports.getProductsByCategory = async function (category) {
+  try {
+    const { rows } = await pool.query(
+      "SELECT sneakers.*, categories.category FROM sneakers LEFT JOIN categories ON sneakers.id = categories.category_id WHERE categories.category = $1",
+      [category],
+    );
+
+    return rows;
   } catch (err) {
     console.error(err);
     throw err;

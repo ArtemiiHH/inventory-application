@@ -5,7 +5,10 @@ const path = require("node:path");
 // Product controller functions
 exports.getProducts = async function (req, res) {
   try {
-    const products = await db.getAllProducts();
+    const { category } = req.query;
+    const products = category
+      ? await db.getProductsByCategory(category)
+      : await db.getAllProducts();
     res.render("products", { title: "All products", products: products });
   } catch (err) {
     console.error(err);

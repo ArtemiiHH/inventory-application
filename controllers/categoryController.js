@@ -9,7 +9,7 @@ exports.getCategories = async function (req, res) {
     });
   } catch (err) {
     console.error(err);
-    res.status(500).send("Error loading categories");
+    res.status(500).send('Error loading categories');
   }
 };
 
