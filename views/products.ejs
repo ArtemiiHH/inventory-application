@@ -32,11 +32,11 @@
           <% products.forEach(product => { %>
             <a href="/products/<%= product.id %>">
               <div class="item-card">
-              <img class="product-image" src="<%= product.image_url %>" alt="<%= product.name %>">
-              <h3><%= product.name %></h3>
-              <p>Brand: <%= product.brand %></p>
-              <p>Stock: <%= product.stock %></p>
-              <p><strong>$<%= product.price %></strong></p>
+                <img class="product-image" src="<%= product.image_url %>" alt="<%= product.name %>">
+                <h3><%= product.name %></h3>
+                <p>Brand: <%= product.brand %></p>
+                <p>Stock: <%= product.stock %></p>
+                <p><strong>$<%= product.price %></strong></p>
               </div>
             </a>
           <% }) %>

@@ -26,9 +26,11 @@
 
           <!-- Each category -->
           <% categories.forEach(cat => { %>
+            <a href="/products?category=<%= cat.category %>">
               <div class="category-card">
                 <h3><%= cat.category.charAt(0).toUpperCase() + cat.category.slice(1) %></h3>
               </div>
+            </a>
           <% }) %>
         </div>
       </section>
