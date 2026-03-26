@@ -86,7 +86,9 @@ a {
   text-transform: uppercase;
   cursor: pointer;
   border-radius: 4px;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .products-btn:hover {
@@ -106,7 +108,9 @@ a {
   text-transform: uppercase;
   cursor: pointer;
   border-radius: 4px;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .categories-btn:hover {
@@ -138,6 +142,19 @@ header {
 /* Search Bar */
 search {
   padding: 0 20px;
+}
+
+search input {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(238, 238, 238);
+}
+
+search input::placeholder {
+  color: black;
+  font-weight: 500;
+  font-size: 1.1rem;
 }
 
 /* Navigation Tabs */
