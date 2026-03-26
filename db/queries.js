@@ -35,7 +35,7 @@ exports.getProductById = async function (id) {
 // Get filtered products
 exports.getFilteredProducts = async function ({ sort, brands, categories }) {
   try {
-    let query = `SELECT sneakers.* FROM sneakers LEFT JOIN categories ON sneakers.id = categories.category_id WHERE 1 = 1`;
+    let query = `SELECT sneakers.*, categories.category FROM sneakers LEFT JOIN categories ON sneakers.category_id = categories.category_id WHERE 1 = 1`;
     const params = [];
     let i = 1;
 
