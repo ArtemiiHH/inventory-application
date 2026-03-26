@@ -12,8 +12,8 @@ Tech Stack
 
 # Setup
 
-1. Install dependencies: npm install
-2. Configure your database in db/pool.js
-3. Add categories at /categories/new
-4. Populate the DB: node db/populatedb.js
-5. Start the server: node app.js
+1. Install dependencies: `npm install`
+2. Configure your database in `db/pool.js`
+3. Add categories at `/categories/new`
+4. Populate the DB: `node db/populatedb.js`
+5. Start the server: `node app.js`
