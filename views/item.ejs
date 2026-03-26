@@ -29,12 +29,12 @@
       <div class="edit-btn-group">
         <!-- Edit Button -->
         <a href="/products/<%= product.id %>/edit">
-          <button>Edit</button>
+          <button class="edit-btn">Edit</button>
         </a>
 
         <!-- Delete Button -->
         <form method="POST" action="/products/<%= product.id %>?_method=DELETE">
-          <button type="submit">Delete</button>
+          <button class="delete-btn" type="submit">Delete</button>
         </form>
       </div>
     </div>
