@@ -198,6 +198,30 @@ footer {
   gap: 10px;
 }
 
+/* Add buttons */
+.add-product-btn,
+.add-category-btn {
+  background-color: #000;
+  color: #fff;
+  border: 2px solid #000;
+  padding: 12px 22px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.add-product-btn,
+.add-category-btn:hover {
+  background-color: #222;
+  border-color: #222;
+}
+
 /* Products */
 .items {
   display: grid;
@@ -239,7 +263,8 @@ footer {
   display: flex;
   align-items: center;
   gap: 30px;
-  padding: 20px 0;
+  padding: 0;
+  padding-bottom: 20px;
 }
 
 .product-image {
