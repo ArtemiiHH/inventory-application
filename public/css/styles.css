@@ -139,24 +139,6 @@ header {
   border-bottom: 1px solid rgb(207, 207, 207);
 }
 
-/* Search Bar */
-search {
-  padding: 0 20px;
-}
-
-search input {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  background-color: rgb(238, 238, 238);
-}
-
-search input::placeholder {
-  color: black;
-  font-weight: 500;
-  font-size: 1.1rem;
-}
-
 /* Navigation Tabs */
 .navigation {
   display: flex;
