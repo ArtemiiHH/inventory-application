@@ -204,7 +204,8 @@ footer {
 
 /* Add buttons */
 .add-product-btn,
-.add-category-btn {
+.add-category-btn,
+.back-btn {
   background-color: #000;
   color: #fff;
   border: 2px solid #000;
@@ -221,7 +222,8 @@ footer {
 }
 
 .add-product-btn,
-.add-category-btn:hover {
+.add-category-btn,
+.back-btn:hover {
   background-color: #222;
   border-color: #222;
 }
@@ -302,20 +304,21 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 20px;
+  gap: 20px;
   align-items: center;
   justify-content: center;
 }
 
 .item-details img {
   height: 400px;
-  width: 400px;
-  justify-self: end;
+  justify-self: center;
 }
 
 .item-desc {
   display: flex;
   flex-direction: column;
   justify-self: start;
+  padding: 30px;
 }
 
 .details {
