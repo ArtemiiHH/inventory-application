@@ -299,15 +299,35 @@ footer {
 
 /* Items */
 .item-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-details img {
+  height: 400px;
+  width: 400px;
+  justify-self: end;
+}
+
+.item-desc {
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  justify-self: start;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .edit-btn-group {
   display: flex;
-  gap: 30px;
-  padding: 20px 0;
+  gap: 20px;
+  padding: 40px 0;
 }
 
 .edit-btn {

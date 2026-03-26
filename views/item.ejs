@@ -16,26 +16,31 @@
       <!-- Item Image -->
       <img src="<%= product.image_url %>" alt="<%= product.name %>" />
 
-      <!-- Item details -->
-      <div class="details">
-        <h2><%= product.name %></h2>
-        <p><%= product.brand %></p>
-        <p><%= product.stock %></p>
-        <p><%= product.price %></p>
-        <p><%= product.description %></p>
-      </div>
+      <div class="item-desc">
+        <!-- Item details -->
+        <div class="details">
+          <h2><%= product.name %></h2>
+          <p><strong>Brand:</strong> <%= product.brand %></p>
+          <p><strong>Stock:</strong> <%= product.stock %> items</p>
+          <p><strong>Price:</strong> $<%= product.price %></p>
+          <p><strong>Description:</strong> <%= product.description %></p>
+        </div>
 
-      <!-- Button Group -->
-      <div class="edit-btn-group">
-        <!-- Edit Button -->
-        <a href="/products/<%= product.id %>/edit">
-          <button class="edit-btn">Edit</button>
-        </a>
+        <!-- Button Group -->
+        <div class="edit-btn-group">
+          <!-- Edit Button -->
+          <a href="/products/<%= product.id %>/edit">
+            <button class="edit-btn">Edit</button>
+          </a>
 
-        <!-- Delete Button -->
-        <form method="POST" action="/products/<%= product.id %>?_method=DELETE">
-          <button class="delete-btn" type="submit">Delete</button>
-        </form>
+          <!-- Delete Button -->
+          <form
+            method="POST"
+            action="/products/<%= product.id %>?_method=DELETE"
+          >
+            <button class="delete-btn" type="submit">Delete</button>
+          </form>
+        </div>
       </div>
     </div>
     <%- include('footer') %>
