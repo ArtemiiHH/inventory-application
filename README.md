@@ -1,6 +1,7 @@
 # Sneaker Store Website
 
 [Live Demo](https://example.com)
+
 A full-stack sneaker store inventory app built with Node.js, Express, and PostgreSQL.
 Tech Stack
 
