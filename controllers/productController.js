@@ -212,5 +212,3 @@ exports.filterProducts = async function (req, res) {
     res.status(500).send("Error filtering products");
   }
 };
-
-// Category controller functions
