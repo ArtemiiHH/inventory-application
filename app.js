@@ -24,7 +24,7 @@ app.use("/products", productRoute);
 app.use("/categories", categoryRoute);
 
 // Server
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, (error) => {
   if (error) {
     throw error;
